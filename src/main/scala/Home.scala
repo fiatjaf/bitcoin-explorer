@@ -2,6 +2,7 @@ import org.scalajs.dom
 import com.raquo.laminar.api.L._
 import upickle.default._
 import urldsl.language.PathSegment.simplePathErrorImpl._
+import scodec.bits.ByteVector
 
 object Home {
   val $tick = EventStream.periodic(1000)
@@ -123,4 +124,6 @@ object Home {
         )
       )
     )
+
+  println(scoin.Crypto.sha256(ByteVector(1, 2, 3, 4, 5, 6)))
 }
