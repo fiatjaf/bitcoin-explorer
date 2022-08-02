@@ -17,11 +17,11 @@ class TransactionView(
     div(
       onMountCallback(ctx => ctx.thisNode.ref.scrollIntoView(true)),
       styleAttr := "width: 625px",
-      cls := "p-8 whitespace-pre-wrap",
+      cls := "p-8 whitespace-pre-wrap break-all",
       child.maybe <-- $txid.map {
         _.map { txid =>
           div(
-            span(cls := "font-bold", s"Transaction $txid"),
+            span(cls := "font-bold", s"transaction $txid"),
             child.maybe <-- $tx.map {
               _.map { tx =>
                 div(
@@ -35,6 +35,7 @@ class TransactionView(
                     ) --> showing.writer,
                     "see hex"
                   ),
+                  div(cls := "break-words", "fee paid: ", tx.fee.toString),
                   div(cls := "break-words", "locktime: ", tx.locktime)
                 )
               }

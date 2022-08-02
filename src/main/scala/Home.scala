@@ -92,7 +92,7 @@ object Home {
           cls := "p-8 w-80",
           div(
             cls := "font-bold",
-            "Block ",
+            "block ",
             child.text <-- $block.map(_.map(_.height.toString).getOrElse("_"))
           ),
           div(
@@ -100,14 +100,14 @@ object Home {
             child.text <-- $block.map(_.map(_.id).getOrElse("_"))
           ),
           div(
-            "Mined ",
+            "mined ",
             child.text <-- $timeSinceLast,
             " ago"
           )
         ),
         div(
           cls := "p-8",
-          span(cls := "font-bold", "Transactions"),
+          span(cls := "font-bold", "transactions"),
           div(
             children <-- $txs.map(
               _.map(txid =>
